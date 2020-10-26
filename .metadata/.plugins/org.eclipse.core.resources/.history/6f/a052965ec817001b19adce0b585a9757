@@ -38,7 +38,7 @@ public class UserController {
 	
 	@PutMapping
 	public ResponseEntity<Void> fazerLogin(@Valid @RequestBody User user) {
-		userService.podeFazerLogin(user);
+		user = userService.podefazerLogin(user);
 		return ResponseEntity.noContent().build();
 	}
 	
