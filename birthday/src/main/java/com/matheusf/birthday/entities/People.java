@@ -19,7 +19,7 @@ public class People implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	private String name;
 	private Date birthday;
 	private Boolean hasDeleted;
@@ -34,7 +34,7 @@ public class People implements Serializable {
 	public People() {
 	}
 	
-	public People(Integer id, String name, Date birthday) {
+	public People(Long id, String name, Date birthday) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -42,11 +42,11 @@ public class People implements Serializable {
 		hasDeleted = false;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 	
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	

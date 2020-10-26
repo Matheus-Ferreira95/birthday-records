@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class User implements Serializable {	
@@ -18,9 +21,15 @@ public class User implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String login;
-	private String password;
+	private Long id;	
+	
+	@NotBlank
+	@Email
+	private String login;	
+	
+	@NotBlank
+	@Size(min = 7, max = 20)
+	private String senha;
 	
 	@ManyToMany
 	@JoinTable(name = "tb_user_people", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "people_id"))
@@ -29,11 +38,11 @@ public class User implements Serializable {
 	public User() {
 	}
 
-	public User(Long id, String login, String password) {		
+	public User(Long id, String login, String senha) {		
 		super();
 		this.id = id;
 		this.login = login;
-		this.password = password;
+		this.senha = senha;
 	}
 
 	public Long getId() {
@@ -52,8 +61,8 @@ public class User implements Serializable {
 		this.login = login;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getSenha() {
+		return senha;
 	}
 	
 	public Set<People> getPeoples() {
@@ -88,4 +97,11 @@ public class User implements Serializable {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", login=" + login + ", senha=" + senha + "]";
+	}
+	
+	
 }
