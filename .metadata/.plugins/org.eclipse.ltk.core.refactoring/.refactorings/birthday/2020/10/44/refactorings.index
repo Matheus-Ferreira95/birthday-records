@@ -2,3 +2,12 @@
 1603738858954	Rename type 'TestConfig'
 1603739030864	Encapsulate field 'id'
 1603741927210	Delete element
+1603744394169	Rename type 'PeopleDTO'
+1603744580951	Encapsulate field 'telefones'
+1603745458559	Delete element
+1603749124141	Rename package 'com.matheusf.birthday.entities.dto'
+1603749133583	Rename package 'com.matheusf.birthday.entities.repositories'
+1603749147393	Rename package 'com.matheusf.birthday.entities.resources'
+1603749158373	Rename package 'com.matheusf.birthday.entities.resources.exceptions'
+1603749168912	Rename package 'com.matheusf.birthday.entities.services.exceptions'
+1603749183808	Rename package 'com.matheusf.birthday.entities.services'

@@ -1,0 +1,28 @@
+package com.matheusf.birthday.services;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.matheusf.birthday.entities.People;
+import com.matheusf.birthday.repositories.PeopleRepository;
+import com.matheusf.birthday.repositories.UserRepository;
+
+@Service
+public class DBService {
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+	@Autowired
+	private PeopleRepository peopleRepository;
+	
+	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	
+	public void instantiateTestDatabase() throws ParseException {		
+		People p1 = new People(null, "Diego", sdf.parse("10/05/1885"));
+		peopleRepository.save(p1);		
+	}	
+}

@@ -1,0 +1,48 @@
+package com.matheusf.birthday.entities.services;
+
+import java.text.ParseException;
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.matheusf.birthday.entities.People;
+import com.matheusf.birthday.entities.User;
+import com.matheusf.birthday.entities.repositories.PeopleRepository;
+import com.matheusf.birthday.entities.repositories.UserRepository;
+
+@Service
+public class DBService {
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+	@Autowired
+	private PeopleRepository peopleRepository;
+	
+	
+	public void instantiateTestDatabase() throws ParseException {
+		System.out.println("===============================");	
+		User u1 = new User(null, "seucleiton@hotmail.com", "99942267");
+		User u2 = new User(null, "seubarriga@gmail.com", "47516979");
+		
+		People p1 = new People(null, "matheus", "12/05/1995");
+		People p2 = new People(null, "junior", "07/08/1999");
+		People p3 = new People(null, "lucas", "09/01/1996");
+		People p4 = new People(null, "cleiton", "15/03/2011");
+		People p5 = new People(null, "diego", "11/09/2008");
+		
+		u1.getPeoples().addAll(Arrays.asList(p1, p3));
+		u2.getPeoples().addAll(Arrays.asList(p2, p4, p5));
+		
+		p1.getUsers().add(u1);
+		p2.getUsers().addAll(Arrays.asList(u1, u2));
+		p3.getUsers().addAll(Arrays.asList(u1, u2));
+		p4.getUsers().add(u2);
+		p5.getUsers().addAll(Arrays.asList(u1, u2));
+		
+		userRepository.saveAll(Arrays.asList(u1, u2));
+		peopleRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));		
+	}
+	
+}

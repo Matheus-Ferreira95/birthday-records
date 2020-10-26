@@ -1,0 +1,5 @@
+package com.matheusf.birthday.entities.repositories;
+
+public class PeopleRepository {
+
+}

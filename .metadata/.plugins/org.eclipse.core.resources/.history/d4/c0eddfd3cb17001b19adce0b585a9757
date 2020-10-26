@@ -1,0 +1,14 @@
+package com.matheusf.birthday.entities.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.matheusf.birthday.entities.repositories.PeopleRepository;
+
+@Service
+public class PeopleService {
+	
+	@Autowired
+	private PeopleRepository peopleRepository;
+	
+}

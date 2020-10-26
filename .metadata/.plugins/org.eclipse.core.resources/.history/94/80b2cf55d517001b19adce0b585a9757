@@ -1,0 +1,43 @@
+package com.matheusf.birthday.entities.services;
+
+import java.text.ParseException;
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.matheusf.birthday.entities.People;
+import com.matheusf.birthday.entities.User;
+import com.matheusf.birthday.entities.repositories.PeopleRepository;
+import com.matheusf.birthday.entities.repositories.UserRepository;
+
+@Service
+public class DBService {
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+	@Autowired
+	private PeopleRepository peopleRepository;
+	
+	
+	public void instantiateTestDatabase() throws ParseException {		
+		
+		
+		People p1 = new People(null, "matheus", "12/05/1995");
+		p1.getPhones().addAll(Arrays.asList("27363323", "93838393"));
+		People p2 = new People(null, "junior", "07/08/1999");
+		p2.getPhones().addAll(Arrays.asList("8654729", "123123123"));
+		People p3 = new People(null, "lucas", "09/01/1996");
+		p3.getPhones().add("48484554");
+		People p4 = new People(null, "cleiton", "15/03/2011");
+		p4.getPhones().add("4477444");
+		People p5 = new People(null, "diego", "11/09/2008");
+		p5.getPhones().add("47949494");
+		
+		peopleRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
+		
+			
+	}
+	
+}

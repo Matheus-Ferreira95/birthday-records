@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
@@ -22,15 +24,16 @@ public class People implements Serializable {
 	private Long id;
 	private String name;
 	private Date birthday;
-	private Boolean hasDeleted;
+	private boolean hasDeleted;	
 	
-	@ManyToMany(mappedBy = "peoples")
+	@ManyToMany
+	@JoinTable(name = "tb_people_user", joinColumns = @JoinColumn(name = "people_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private Set<User> users = new HashSet<>();
 	
 	@ElementCollection
 	@CollectionTable(name = "phones")
 	private Set<String> phones = new HashSet<>();
-		
+				
 	public People() {
 	}
 	
@@ -38,8 +41,7 @@ public class People implements Serializable {
 		super();
 		this.id = id;
 		this.name = name;
-		this.birthday = birthday;
-		hasDeleted = false;
+		this.birthday = birthday;		
 	}
 
 	public Long getId() {
@@ -62,7 +64,7 @@ public class People implements Serializable {
 		return birthday;
 	}
 	
-	public void setBirthday(Date birthday) {
+	public void setBirthday(Date birthday) {		
 		this.birthday = birthday;
 	}
 	

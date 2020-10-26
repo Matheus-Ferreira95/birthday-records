@@ -8,8 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -31,8 +29,7 @@ public class User implements Serializable {
 	@Size(min = 7, max = 20, message = "A senha deve conter no minimo {min} caracteres e no máximo {max} caracteres")
 	private String senha;
 	
-	@ManyToMany
-	@JoinTable(name = "tb_user_people", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "people_id"))
+	@ManyToMany(mappedBy="users")	
 	private Set<People> peoples = new HashSet<>();
 	
 	public User() {
