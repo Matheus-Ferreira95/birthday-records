@@ -23,7 +23,7 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;	
 	
-	@NotBlank(message = "Campo obrigatório")
+	@NotBlank
 	@Email
 	private String login;	
 	

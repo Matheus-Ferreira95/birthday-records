@@ -23,12 +23,12 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;	
 	
-	@NotBlank(message = "Campo obrigatório")
+	@NotBlank
 	@Email
 	private String login;	
 	
 	@NotBlank
-	@Size(min = 7, max = 20, message = "A senha deve conter no minimo {min} caracteres e no máximo {max} caracteres")
+	@Size(min = 7, max = 20)
 	private String senha;
 	
 	@ManyToMany
