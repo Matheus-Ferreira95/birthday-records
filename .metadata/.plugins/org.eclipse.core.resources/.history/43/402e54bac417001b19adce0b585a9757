@@ -1,0 +1,5 @@
+package com.matheusf.birthday.entities.services;
+
+public class DomainException {
+
+}

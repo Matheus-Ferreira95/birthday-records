@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.matheusf.birthday.entities.User;
 import com.matheusf.birthday.entities.repositories.UserRepository;
-import com.matheusf.birthday.entities.services.exceptions.DomainException;
 
 @Service
 public class UserService {
@@ -16,8 +15,9 @@ public class UserService {
 	public User cadastrar(User novoUser) {
 		User user = userRepository.findByLogin(novoUser.getLogin());
 		if (user != null) {
-			throw new DomainException("Login já existente! Por favor escolha outro login");
-		}		
+			throw new
+		}
+		
 		return userRepository.save(novoUser);
 	}	
 }

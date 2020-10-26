@@ -11,8 +11,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.matheusf.birthday.entities.services.exceptions.DomainException;
-
 @ControllerAdvice
 public class ResourceExceptionHandler {
 
@@ -26,10 +24,4 @@ public class ResourceExceptionHandler {
 		return ResponseEntity.status(status).body(ve);	
 	}
 	
-	@ExceptionHandler(DomainException.class)
-	public ResponseEntity<StandardError> mainException(DomainException e, HttpServletRequest request) {
-		HttpStatus status = HttpStatus.BAD_REQUEST;
-		StandardError see = new StandardError(status.value(), OffsetDateTime.now(), e.getMessage(), request.getRequestURI());
-		return ResponseEntity.status(status).body(see);
-	}	
 }
