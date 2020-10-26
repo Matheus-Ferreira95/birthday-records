@@ -46,3 +46,69 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.ui 2 2 2020-10-26 15:29:57.744
 !MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:32:53.391
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:32:53.404
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@f7a8a7b[org.springframework.tooling.boot.ls:1.20.0.202007271426(id=635)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:32:53.415
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:32:53.453
+!MESSAGE Instantiating ReusableClasspathListenerHandler
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:32:55.788
+!MESSAGE Boot LS startup time from start to initialized: 2357ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:32:55.832
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.CiTuMOuWisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:32:55.838
+!MESSAGE Creating project sorter...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:32:55.846
+!MESSAGE Creating project sorter... DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:32:55.853
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:32:55.861
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:32:55.866
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:32:55.873
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:32:55.882
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.CiTuMOuW => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:32:55.894
+!MESSAGE classpath=66 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:32:55.903
+!MESSAGE buffering callback sts4.classpath.CiTuMOuW birthday false 66
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:32:55.908
+!MESSAGE executing callback sts4.classpath.CiTuMOuW 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:32:55.934
+!MESSAGE executing callback sts4.classpath.CiTuMOuW SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:35:26.441
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:35:26.453
+!MESSAGE classpath=92 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:35:26.461
+!MESSAGE buffering callback sts4.classpath.CiTuMOuW birthday false 92
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:35:26.468
+!MESSAGE executing callback sts4.classpath.CiTuMOuW 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-10-26 15:35:26.484
+!MESSAGE executing callback sts4.classpath.CiTuMOuW SUCCESS [done]
