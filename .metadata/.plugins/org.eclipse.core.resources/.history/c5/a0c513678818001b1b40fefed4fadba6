@@ -16,7 +16,7 @@ public class PeopleInsertDTO implements Serializable {
 	private String nome;
 	
 	@NotBlank
-	@Pattern(regexp = "\\d{2}/\\d{2}/\\d{4}", message = "Formato de data inválido. Digite uma data no formato dd/MM/yyyy")
+	@Pattern(regexp = "\\d{2}/\\d{2}/\\d{4}")
 	private String DataDeNascimento;
 	
 	@NotBlank	

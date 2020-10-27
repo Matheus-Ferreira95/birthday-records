@@ -21,7 +21,8 @@ public class PeopleDTO {
 		nome = people.getName();
 		dataDeNascimento = people.getBirthday();
 		setIdade(people.getAge());
-		telefones = people.getPhones();			
+		telefones = people.getPhones();	
+		
 	}
 	
 	public Long getId() {
