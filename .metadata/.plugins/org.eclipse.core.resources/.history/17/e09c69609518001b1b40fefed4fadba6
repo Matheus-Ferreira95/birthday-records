@@ -24,6 +24,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.matheusf.birthday.domain.User;
 import com.matheusf.birthday.dto.PeopleDTO;
 import com.matheusf.birthday.dto.UserDTO;
+import com.matheusf.birthday.repositories.PeopleRepository;
 import com.matheusf.birthday.services.UserService;
 
 @RestController
@@ -32,7 +33,10 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;	
-		
+	
+	@Autowired
+	private PeopleRepository peopleRepository;
+	
 	@Autowired
 	private ModelMapper modelMapper;
 	
@@ -67,8 +71,7 @@ public class UserController {
 	public ResponseEntity<Page<PeopleDTO>> findByName(@PathVariable Long idUser, @PathVariable String nomePeople) {
 		User user = userService.findById(idUser);
 		List<PeopleDTO> list = user.getPeoples().stream()			
-				.filter(pessoa -> pessoa.getName().toLowerCase().contains(nomePeople.toLowerCase()) 
-						&& pessoa.getHasDeleted() == false)				
+				.filter(pessoa -> pessoa.getName().contains(pessoa.formatarNome(nomePeople)))
 				.map(pessoa -> new PeopleDTO(pessoa))
 				.collect(Collectors.toList());
 		

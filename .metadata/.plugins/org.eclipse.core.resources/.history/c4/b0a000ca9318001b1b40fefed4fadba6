@@ -32,7 +32,7 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;	
-		
+	
 	@Autowired
 	private ModelMapper modelMapper;
 	
@@ -62,19 +62,6 @@ public class UserController {
 		Page<PeopleDTO> pageDTO = new PageImpl<>(list);		
 		return ResponseEntity.ok().body(pageDTO);		
 	}	
-	
-	@GetMapping("/{idUser}/{nomePeople}")
-	public ResponseEntity<Page<PeopleDTO>> findByName(@PathVariable Long idUser, @PathVariable String nomePeople) {
-		User user = userService.findById(idUser);
-		List<PeopleDTO> list = user.getPeoples().stream()			
-				.filter(pessoa -> pessoa.getName().toLowerCase().contains(nomePeople.toLowerCase()) 
-						&& pessoa.getHasDeleted() == false)				
-				.map(pessoa -> new PeopleDTO(pessoa))
-				.collect(Collectors.toList());
-		
-		Page<PeopleDTO> pageDTO = new PageImpl<>(list);
-		return ResponseEntity.ok().body(pageDTO);		
-	}
 	
 	private UserDTO toDTO(User user) {
 		return modelMapper.map(user, UserDTO.class);

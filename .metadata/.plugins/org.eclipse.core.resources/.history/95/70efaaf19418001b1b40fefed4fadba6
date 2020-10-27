@@ -21,9 +21,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.matheusf.birthday.domain.People;
 import com.matheusf.birthday.domain.User;
 import com.matheusf.birthday.dto.PeopleDTO;
 import com.matheusf.birthday.dto.UserDTO;
+import com.matheusf.birthday.repositories.PeopleRepository;
 import com.matheusf.birthday.services.UserService;
 
 @RestController
@@ -32,7 +34,10 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;	
-		
+	
+	@Autowired
+	private PeopleRepository peopleRepository;
+	
 	@Autowired
 	private ModelMapper modelMapper;
 	
@@ -64,16 +69,12 @@ public class UserController {
 	}	
 	
 	@GetMapping("/{idUser}/{nomePeople}")
-	public ResponseEntity<Page<PeopleDTO>> findByName(@PathVariable Long idUser, @PathVariable String nomePeople) {
+	public ResponseEntity<List<PeopleDTO>> findByName(@PathVariable Long idUser, @PathVariable String nomePeople) {
 		User user = userService.findById(idUser);
-		List<PeopleDTO> list = user.getPeoples().stream()			
-				.filter(pessoa -> pessoa.getName().toLowerCase().contains(nomePeople.toLowerCase()) 
-						&& pessoa.getHasDeleted() == false)				
-				.map(pessoa -> new PeopleDTO(pessoa))
-				.collect(Collectors.toList());
-		
-		Page<PeopleDTO> pageDTO = new PageImpl<>(list);
-		return ResponseEntity.ok().body(pageDTO);		
+		List<String> nomes = user.getPeoples().stream()
+				.map(pessoa -> pessoa.getName())
+				.filter(pessoa -> pessoa.con)
+		Page<People> list = peopleRepository.findByNameContainingIgnoreCaseAndNamesIn(nomePeople, user.getPeoples().get);
 	}
 	
 	private UserDTO toDTO(User user) {

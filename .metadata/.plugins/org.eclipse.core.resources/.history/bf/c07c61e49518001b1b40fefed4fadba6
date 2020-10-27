@@ -67,7 +67,7 @@ public class UserController {
 	public ResponseEntity<Page<PeopleDTO>> findByName(@PathVariable Long idUser, @PathVariable String nomePeople) {
 		User user = userService.findById(idUser);
 		List<PeopleDTO> list = user.getPeoples().stream()			
-				.filter(pessoa -> pessoa.getName().toLowerCase().contains(nomePeople.toLowerCase()) 
+				.filter(pessoa -> pessoa.getName().contains(pessoa.formatarNome(nomePeople)) 
 						&& pessoa.getHasDeleted() == false)				
 				.map(pessoa -> new PeopleDTO(pessoa))
 				.collect(Collectors.toList());
