@@ -1,9 +1,9 @@
 package com.matheusf.birthday.dto;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import com.matheusf.birthday.domain.People;
 
@@ -13,7 +13,7 @@ public class PeopleDTO {
 	private String nome;		
 	private Date dataDeNascimento;	
 	
-	private Set<String> telefones = new HashSet<>();
+	private List<String> telefones = new ArrayList<>();
 
 	public PeopleDTO(People people) {
 		this.id = people.getId();
@@ -47,7 +47,7 @@ public class PeopleDTO {
 		this.dataDeNascimento = dataDeNascimento;
 	}
 
-	public Set<String> getTelefones() {
+	public List<String> getTelefones() {
 		return telefones;
 	}
 }

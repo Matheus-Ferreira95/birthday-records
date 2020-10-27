@@ -1,8 +1,12 @@
 package com.matheusf.birthday.domain;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CollectionTable;
@@ -32,7 +36,7 @@ public class People implements Serializable {
 	
 	@ElementCollection
 	@CollectionTable(name = "phones")
-	private Set<String> phones = new HashSet<>();
+	private List<String> phones = new ArrayList<>();
 				
 	public People() {
 	}
@@ -64,8 +68,9 @@ public class People implements Serializable {
 		return birthday;
 	}
 	
-	public void setBirthday(Date birthday) {		
-		this.birthday = birthday;
+	public void setBirthday(String birthday) throws ParseException {		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		this.birthday = sdf.parse(birthday);		
 	}
 	
 	public Boolean getHasDeleted() {
@@ -74,9 +79,9 @@ public class People implements Serializable {
 		
 	public Set<User> getUsers() {
 		return users;
-	}
+	}	
 
-	public Set<String> getPhones() {
+	public List<String> getPhones() {
 		return phones;
 	}
 
