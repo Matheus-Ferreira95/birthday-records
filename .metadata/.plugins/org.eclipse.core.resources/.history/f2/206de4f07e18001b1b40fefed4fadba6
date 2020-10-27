@@ -85,7 +85,7 @@ public class People implements Serializable {
 		return phones;
 	}
 
-	public void deletar() {		
+	public void delete() {
 		hasDeleted = true;
 	}	
 

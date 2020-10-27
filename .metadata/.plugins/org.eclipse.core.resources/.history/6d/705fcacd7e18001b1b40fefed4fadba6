@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,13 +54,13 @@ public class PeopleService {
 	public People update(PeopleUpdateDTO peopleUpdate, Long id) throws ParseException {	
 		People entity = findById(id);
 		updateData(entity, peopleUpdate);
-		return peopleRepository.save(entity);				
+		return peopleRepository.save(entity);
+				
 	}	
 	
 	public void delete(Long id) {
-		People entity = findById(id);
-		entity.deletar();
-		peopleRepository.save(entity);
+		
+		
 	}	
 	
 	private void updateData(People entity, PeopleUpdateDTO peopleUpdate) throws ParseException {

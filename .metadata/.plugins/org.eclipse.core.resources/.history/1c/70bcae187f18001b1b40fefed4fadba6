@@ -57,8 +57,7 @@ public class PeopleService {
 	
 	public void delete(Long id) {
 		People entity = findById(id);
-		entity.deletar();
-		peopleRepository.save(entity);
+		entity.deletar();		
 	}	
 	
 	private void updateData(People entity, PeopleUpdateDTO peopleUpdate) throws ParseException {
