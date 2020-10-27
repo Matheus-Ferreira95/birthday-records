@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.Email"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.matheusf.birthday.entities.resources.exceptions.FieldMessage"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.MethodArgumentNotValidException"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="com.matheusf.birthday.entities.resources.exceptions.ValidationError"/>
+    <fullyQualifiedTypeName name="org.springframework.validation.FieldError"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ExceptionHandler"/>
+    <fullyQualifiedTypeName name="com.matheusf.birthday.entities.services.exceptions.DomainException"/>
+    <fullyQualifiedTypeName name="javax.transaction.Transactional"/>
+    <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
+    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+    <fullyQualifiedTypeName name="com.matheusf.birthday.entities.resources.exceptions.StandardError"/>
+    <fullyQualifiedTypeName name="java.time.OffsetDateTime"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.NotBlank"/>
+    <fullyQualifiedTypeName name="com.sun.istack.NotNull"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
+    <fullyQualifiedTypeName name="java.util.Set"/>
+    <fullyQualifiedTypeName name="java.net.URI"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.support.ServletUriComponentsBuilder"/>
+    <fullyQualifiedTypeName name="com.sun.el.stream.Optional"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="com.matheusf.birthday.entities.services.exceptions.ResourceNotFoundException"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.CommandLineRunner"/>
+    <fullyQualifiedTypeName name="com.matheusf.birthday.entities.People"/>
+    <fullyQualifiedTypeName name="com.matheusf.birthday.entities.User"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+</qualifiedTypeNameHistroy>

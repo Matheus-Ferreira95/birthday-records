@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.matheusf.birthday.domain.User;
 import com.matheusf.birthday.dto.UserDTO;
-import com.matheusf.birthday.entities.User;
 import com.matheusf.birthday.services.UserService;
 
 @RestController

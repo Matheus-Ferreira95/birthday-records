@@ -12,10 +12,10 @@ public class PeopleInsertDTO implements Serializable {
 	private Long userId;
 	
 	@NotBlank
-	private String name;
+	private String nome;
 	
-	@NotNull
-	private String birthday;
+	@NotBlank
+	private String DataDeNascimento;
 	
 	@NotBlank
 	private String telefone1;
@@ -30,20 +30,20 @@ public class PeopleInsertDTO implements Serializable {
 		this.userId = userId;
 	}
 
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public String getBirthday() {
-		return birthday;
+	public String getDataDeNascimento() {
+		return DataDeNascimento;
 	}
 
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
+	public void setDataDeNascimento(String dataDeNascimento) {
+		this.DataDeNascimento = dataDeNascimento;
 	}
 
 	public String getTelefone1() {
