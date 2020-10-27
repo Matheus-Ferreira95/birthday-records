@@ -86,7 +86,19 @@ public class UserController {
 		List<People> birthdaysOnMonth = peopleService.findBirthdaysOnMonth(user);
 		Page<PeopleDTO> pageDTO = filter(birthdaysOnMonth);		
 		return ResponseEntity.ok().body(pageDTO);	
-	}	
+	}
+	
+	@GetMapping("/amountOnDay")
+	public ResponseEntity<Integer> birthdaysOnDay() {
+		int birthdays = PeopleService.birthdaysDay;
+		return ResponseEntity.ok().body(birthdays);
+	}
+	
+	@GetMapping("/amountOnMonth")
+	public ResponseEntity<Integer> birthdaysOnMonth() {
+		int birthdays = PeopleService.birthDaysMonth;
+		return ResponseEntity.ok().body(birthdays);
+	}
 	
 	private Page<PeopleDTO> filter(List<People> peoples){
 		List<PeopleDTO> list = peoples.stream()

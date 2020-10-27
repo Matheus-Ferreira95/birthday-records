@@ -73,20 +73,12 @@ public class UserController {
 	}	
 	
 	@GetMapping("/{idUser}/onDay")
-	public ResponseEntity<Page<PeopleDTO>> listBirthdaysOnDay(@PathVariable Long idUser) {
+	public ResponseEntity<Page<PeopleDTO>> findBirthdaysOnDay(@PathVariable Long idUser) {
 		User user = userService.findById(idUser);
 		List<People> birthdaysOnDay = peopleService.findBirthdaysOnDay(user);
 		Page<PeopleDTO> pageDTO = filter(birthdaysOnDay);		
 		return ResponseEntity.ok().body(pageDTO);	
 	}
-	
-	@GetMapping("/{idUser}/onMonth")
-	public ResponseEntity<Page<PeopleDTO>> listBirthdaysOnMonth(@PathVariable Long idUser) {
-		User user = userService.findById(idUser);
-		List<People> birthdaysOnMonth = peopleService.findBirthdaysOnMonth(user);
-		Page<PeopleDTO> pageDTO = filter(birthdaysOnMonth);		
-		return ResponseEntity.ok().body(pageDTO);	
-	}	
 	
 	private Page<PeopleDTO> filter(List<People> peoples){
 		List<PeopleDTO> list = peoples.stream()
@@ -97,7 +89,7 @@ public class UserController {
 		
 		Page<PeopleDTO> pageDTO = new PageImpl<>(list);
 		return pageDTO;
-	}	
+	}
 	
 	private UserDTO toDTO(User user) {
 		return modelMapper.map(user, UserDTO.class);

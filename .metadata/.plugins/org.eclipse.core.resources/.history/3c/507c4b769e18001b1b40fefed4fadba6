@@ -30,11 +30,15 @@ public class PeopleService {
 	private static Calendar calToday = Calendar.getInstance();
 	
 	private static Calendar calPeople = Calendar.getInstance();
-		
+	
+	private static List<People> birthdaysOnDay = new ArrayList<>();	
+	
+	private static List<People> birthdaysOnMonth = new ArrayList<>();
+	
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");	
 	
 	private static Date dateNow = new Date();
-			
+		
 	public void register(People entity, User user) {			
 		entity.getUsers().add(user);
 		user.getPeoples().add(entity);
@@ -69,33 +73,31 @@ public class PeopleService {
 		peopleRepository.save(entity);
 	}		
 	
-	public List<People> findBirthdaysOnDay(User user) {	
-		List<People> birthdaysOnDay = new ArrayList<>();	
+	public List<People> findBirthdaysOnDay(User user) {		
 		calToday.setTime(dateNow);
-		int monthToday = calToday.get(Calendar.MONTH);
+		int monthToday = calToday.get(Calendar.MONTH) + 1;
 		int dayToday = calToday.get(Calendar.DATE);		
 		for (People people : user.getPeoples()) {
 			calPeople.setTime(people.getBirthday());
-			int monthPeople = calPeople.get(Calendar.MONTH);
+			int monthPeople = calPeople.get(Calendar.MONTH) + 1;
 			int dayPeople = calPeople.get(Calendar.DATE);
 			if (monthToday == monthPeople && dayToday == dayPeople) {
 				birthdaysOnDay.add(people);
 			}
-		}		
+		}
 		return birthdaysOnDay;
 	}
 	
-	public List<People> findBirthdaysOnMonth(User user) {	
-		List<People> birthdaysOnMonth = new ArrayList<>();
+	public List<People> findBirthdaysOnMonth(User user) {		
 		calToday.setTime(dateNow);
-		int monthToday = calToday.get(Calendar.MONTH);		
+		int monthToday = calToday.get(Calendar.MONTH) + 1;		
 		for (People people : user.getPeoples()) {
 			calPeople.setTime(people.getBirthday());
-			int monthPeople = calPeople.get(Calendar.MONTH);			
+			int monthPeople = calPeople.get(Calendar.MONTH) + 1;			
 			if (monthToday == monthPeople) {
 				birthdaysOnMonth.add(people);
 			}
-		}		
+		}
 		return birthdaysOnMonth;
 	}	
 	

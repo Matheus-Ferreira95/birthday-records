@@ -34,7 +34,7 @@ public class PeopleService {
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");	
 	
 	private static Date dateNow = new Date();
-			
+		
 	public void register(People entity, User user) {			
 		entity.getUsers().add(user);
 		user.getPeoples().add(entity);
@@ -81,7 +81,7 @@ public class PeopleService {
 			if (monthToday == monthPeople && dayToday == dayPeople) {
 				birthdaysOnDay.add(people);
 			}
-		}		
+		}
 		return birthdaysOnDay;
 	}
 	
@@ -95,7 +95,7 @@ public class PeopleService {
 			if (monthToday == monthPeople) {
 				birthdaysOnMonth.add(people);
 			}
-		}		
+		}
 		return birthdaysOnMonth;
 	}	
 	

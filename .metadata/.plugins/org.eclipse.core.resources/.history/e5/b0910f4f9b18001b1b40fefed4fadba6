@@ -56,7 +56,7 @@ public class PeopleController {
 		peopleService.delete(peopleId);
 		return ResponseEntity.noContent().build();
 	}
-		
+	
 	private PeopleDTO toDTO(People entity) {
 		return new PeopleDTO(entity);
 	}
