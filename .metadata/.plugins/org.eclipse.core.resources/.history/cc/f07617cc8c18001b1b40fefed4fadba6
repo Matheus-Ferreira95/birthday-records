@@ -1,0 +1,21 @@
+package com.matheusf.birthday.repositories;
+
+import java.util.Set;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.matheusf.birthday.domain.People;
+
+@Repository
+public interface PeopleRepository extends JpaRepository<People, Long> {
+
+	@Transactional(readOnly = true)
+	People findByIdAndHasDeletedFalse(long id);
+	
+	@Transactional(readOnly = true)
+	Page<People> findPeoplesIn(Set<People> peoples, Pageable pageRequest);
+}

@@ -5,9 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import javax.persistence.CollectionTable;
@@ -33,7 +31,7 @@ public class People implements Serializable {
 	
 	@ManyToMany
 	@JoinTable(name = "tb_people_user", joinColumns = @JoinColumn(name = "people_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
-	private Set<User> users = new HashSet<>();
+	private List<User> users = new ArrayList<>();
 	
 	@ElementCollection
 	@CollectionTable(name = "phones")
@@ -45,8 +43,17 @@ public class People implements Serializable {
 	public People(Long id, String name, Date birthday) {		
 		super();
 		this.id = id;
-		this.name = name;
+		this.name = formatarNome(name);
 		this.birthday = birthday;		
+	}
+
+	private String formatarNome(String name) {		
+		String[] fields = name.toLowerCase().split(" ");
+		String nome = "";
+		for (String str : fields) {
+			nome += Character.toUpperCase(str.charAt(0)) + str.substring(1) + " ";
+		}		
+		return nome.trim();		
 	}
 
 	public Long getId() {
@@ -78,7 +85,7 @@ public class People implements Serializable {
 		return hasDeleted;
 	}
 		
-	public Set<User> getUsers() {
+	public List<User> getUsers() {
 		return users;
 	}	
 

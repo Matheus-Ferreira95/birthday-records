@@ -1,8 +1,8 @@
 package com.matheusf.birthday.domain;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,7 +30,7 @@ public class User implements Serializable {
 	private String senha;
 	
 	@ManyToMany(mappedBy="users")	
-	private Set<People> peoples = new HashSet<>();
+	private List<People> peoples = new ArrayList<>();
 	
 	public User() {
 	}
@@ -62,13 +62,9 @@ public class User implements Serializable {
 		return senha;
 	}
 	
-	public Set<People> getPeoples() {
+	public List<People> getPeoples() {
 		return peoples;
-	}
-
-	public void setPeoples(Set<People> peoples) {
-		this.peoples = peoples;
-	}
+	}	
 
 	@Override
 	public int hashCode() {

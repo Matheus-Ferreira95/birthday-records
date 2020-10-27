@@ -1,12 +1,19 @@
 package com.matheusf.birthday.resources;
 
 import java.net.URI;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.matheusf.birthday.domain.User;
+import com.matheusf.birthday.dto.PeopleDTO;
 import com.matheusf.birthday.dto.UserDTO;
 import com.matheusf.birthday.services.UserService;
 
@@ -23,13 +31,13 @@ import com.matheusf.birthday.services.UserService;
 public class UserController {
 
 	@Autowired
-	private UserService userService;
+	private UserService userService;	
 	
 	@Autowired
 	private ModelMapper modelMapper;
 	
 	@PostMapping
-	public ResponseEntity<UserDTO> cadastrar(@Valid @RequestBody User user) {		
+	public ResponseEntity<UserDTO> register(@Valid @RequestBody User user) {		
 		user = userService.register(user);		
 		UserDTO userDTO = toDTO(user);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(userDTO.getId()).toUri();
@@ -37,11 +45,23 @@ public class UserController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<Void> fazerLogin(@Valid @RequestBody User user) {
+	public ResponseEntity<Void> canBeLogin(@Valid @RequestBody User user) {
 		userService.canBeLogin(user);
 		return ResponseEntity.noContent().build();
 	}
 	
+	@GetMapping("/{idUser}")
+	public ResponseEntity<Page<PeopleDTO>> findAll(@PathVariable Long idUser) {		
+		User user = userService.findById(idUser);
+		List<PeopleDTO> list = user.getPeoples().stream()
+				.filter(people -> people.getHasDeleted() == false)
+				.map(people -> new PeopleDTO(people))
+				.sorted(Comparator.comparing(PeopleDTO::getNome))
+				.collect(Collectors.toList());
+		
+		Page<PeopleDTO> pageDTO = new PageImpl<>(list);		
+		return ResponseEntity.ok().body(pageDTO);		
+	}	
 	
 	private UserDTO toDTO(User user) {
 		return modelMapper.map(user, UserDTO.class);

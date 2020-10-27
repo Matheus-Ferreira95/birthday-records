@@ -59,7 +59,7 @@ public class PeopleService {
 		People entity = findById(id);
 		entity.deletar();
 		peopleRepository.save(entity);
-	}	
+	}		
 	
 	private void updateData(People entity, PeopleUpdateDTO peopleUpdate) throws ParseException {
 		if (peopleUpdate.getDataDeNascimento() != null) {
@@ -71,5 +71,5 @@ public class PeopleService {
 		if (peopleUpdate.getTelefone2() != null) {			
 			entity.getPhones().set(1, peopleUpdate.getTelefone2());
 		}				
-	}		
+	}
 }

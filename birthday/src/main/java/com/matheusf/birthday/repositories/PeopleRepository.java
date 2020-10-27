@@ -10,5 +10,5 @@ import com.matheusf.birthday.domain.People;
 public interface PeopleRepository extends JpaRepository<People, Long> {
 
 	@Transactional(readOnly = true)
-	People findByIdAndHasDeletedFalse(long id);
+	People findByIdAndHasDeletedFalse(long id);	
 }
