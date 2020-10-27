@@ -12,7 +12,6 @@ public class PeopleDTO {
 	private Long id;
 	private String nome;		
 	private Date dataDeNascimento;	
-	private Integer idade;	
 	
 	private List<String> telefones = new ArrayList<>();
 
@@ -20,9 +19,7 @@ public class PeopleDTO {
 		this.id = people.getId();
 		nome = people.getName();
 		dataDeNascimento = people.getBirthday();
-		setIdade(people.getAge());
-		telefones = people.getPhones();	
-		
+		telefones = people.getPhones();		
 	}
 	
 	public Long getId() {
@@ -52,13 +49,5 @@ public class PeopleDTO {
 
 	public List<String> getTelefones() {
 		return telefones;
-	}
-
-	public Integer getIdade() {
-		return idade;
-	}
-
-	public void setIdade(Integer idade) {
-		this.idade = idade;
 	}
 }

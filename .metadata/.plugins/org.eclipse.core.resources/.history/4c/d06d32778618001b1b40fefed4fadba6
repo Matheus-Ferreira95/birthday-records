@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
@@ -89,12 +88,6 @@ public class People implements Serializable {
 	public void deletar() {		
 		hasDeleted = true;
 	}	
-	
-	public int getAge() {
-		Date today = new Date();
-		long days = today.getTime() - birthday.getTime();
-		return (int) (TimeUnit.DAYS.convert(days, TimeUnit.MILLISECONDS) / 365);		
-	}
 
 	@Override
 	public int hashCode() {

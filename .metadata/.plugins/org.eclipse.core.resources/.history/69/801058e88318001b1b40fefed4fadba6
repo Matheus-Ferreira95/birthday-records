@@ -17,7 +17,7 @@ public class PeopleInsertDTO implements Serializable {
 	@NotBlank
 	private String DataDeNascimento;
 	
-	@NotBlank	
+	@NotBlank
 	private String telefone1;
 	
 	private String telefone2;

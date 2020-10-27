@@ -13,3 +13,4 @@
 1603749183808	Rename package 'com.matheusf.birthday.entities.services'
 1603814529971	Rename package 'com.matheusf.birthday.entities'
 1603815479973	Encapsulate field 'id'
+1603825598158	Encapsulate field 'idade'

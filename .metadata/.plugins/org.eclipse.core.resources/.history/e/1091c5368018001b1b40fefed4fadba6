@@ -36,7 +36,7 @@ public class PeopleService {
 	public void checkBirthday(String date) throws ParseException {
 		Date dateInsert = sdf.parse(date);
 		Date dateNow = new Date();
-		if (dateInsert.compareTo(dateNow) > 0) {
+		if (dateInsert.getTime() - dateNow.getTime() > 0) {
 			throw new DomainException("Data inválida. Apenas datas passadas são aceitas");
 		}		
 	}	
