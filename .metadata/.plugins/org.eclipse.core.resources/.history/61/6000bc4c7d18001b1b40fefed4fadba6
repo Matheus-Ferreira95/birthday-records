@@ -3,6 +3,7 @@ package com.matheusf.birthday.services;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -44,16 +45,13 @@ public class PeopleService {
 	}	
 	
 	public People findById(Long id) {
-		People entity = peopleRepository.findByIdAndHasDeletedFalse(id);
-		if (entity == null) {
-			throw new ResourceNotFoundException("Pessoa com id " + id + " não existe");
-		}		
-		return entity;
+		Optional<People> opt = peopleRepository.findById(id);
+		return opt.orElseThrow(() -> new ResourceNotFoundException("Pessoa com id " + id + " não existe"));
 	}
 
 	public People update(PeopleUpdateDTO peopleUpdate, Long id) throws ParseException {
 		try {
-			People entity = findById(id);
+			People entity = peopleRepository.getOne(id);
 			updateData(entity, peopleUpdate);
 			return peopleRepository.save(entity);
 		} catch (EntityNotFoundException e) {			

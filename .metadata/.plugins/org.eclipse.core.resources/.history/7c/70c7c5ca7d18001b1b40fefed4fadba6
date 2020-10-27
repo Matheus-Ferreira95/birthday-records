@@ -53,7 +53,7 @@ public class PeopleService {
 
 	public People update(PeopleUpdateDTO peopleUpdate, Long id) throws ParseException {
 		try {
-			People entity = findById(id);
+			People entity = peopleRepository.findByIdAndHasDeletedFalse(id);
 			updateData(entity, peopleUpdate);
 			return peopleRepository.save(entity);
 		} catch (EntityNotFoundException e) {			
