@@ -24,9 +24,9 @@ public class UserService {
 		return userRepository.save(novoUser);
 	}
 
-	public boolean tryLogin(String login, String password) {
-		User user = userRepository.findByLogin(login);
-		if (user != null && user.getSenha().equals(password)) {
+	public boolean canBeLogin(User tryLogin) {
+		User user = userRepository.findByLogin(tryLogin.getLogin());
+		if (user != null && user.getSenha().equals(tryLogin.getSenha())) {
 			return true;
 		}
 		throw new ResourceNotFoundException("Login ou senha inválido! Tente novamente");
@@ -38,5 +38,6 @@ public class UserService {
 			throw new ResourceNotFoundException("Usuário com id " + id + " não existe");
 		}
 		return opt.get();	
-	}	
+	}
+	
 }
