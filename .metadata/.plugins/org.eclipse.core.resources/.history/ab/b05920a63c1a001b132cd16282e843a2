@@ -102,11 +102,6 @@ public class People implements Serializable {
 		long days = today.getTime() - birthday.getTime();
 		return (int) (TimeUnit.DAYS.convert(days, TimeUnit.MILLISECONDS) / 365);		
 	}
-	
-	@Override
-	public String toString() {
-		return "People [id=" + id + ", name=" + name; 
-	}
 
 	@Override
 	public int hashCode() {

@@ -43,10 +43,10 @@ public class DBService {
 		p6.getPhones().addAll(Arrays.asList("34 99999-3333", "34 88888-2010"));
 		p7.getPhones().addAll(Arrays.asList("34 87878-0000", "34 91101-0147"));
 		
-		u1.getPeoples().addAll(Arrays.asList(p1, p3, p4, p5, p6));
-		u2.getPeoples().addAll(Arrays.asList(p2, p5, p6, p7));
+		u1.getPeoples().addAll(Arrays.asList(p1, p3, p4, p5));
+		u2.getPeoples().addAll(Arrays.asList(p2, p6, p7));
 		
-		p1.getUsers().addAll(Arrays.asList(u1));
+		p1.getUsers().addAll(Arrays.asList(u1, u2));
 		p2.getUsers().add(u2);
 		p3.getUsers().add(u1);
 		p4.getUsers().add(u1);

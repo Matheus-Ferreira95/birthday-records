@@ -34,7 +34,7 @@ public class DBService {
 		People p4 = new People(null, "jane", sdf.parse("08/03/2001"));
 		People p5 = new People(null, "maria souza carmen", sdf.parse("27/10/2010"));
 		People p6 = new People(null, "fernando", sdf.parse("15/06/2002"));
-		People p7 = new People(null, "lala", sdf.parse("03/10/2011"));
+		People p7 = new People(null, "lalal", sdf.parse("03/10/2011"));
 		p1.getPhones().add("34 91111-5547");
 		p2.getPhones().add("34 93478-6747");
 		p3.getPhones().add("34 92893-1111");
@@ -43,10 +43,10 @@ public class DBService {
 		p6.getPhones().addAll(Arrays.asList("34 99999-3333", "34 88888-2010"));
 		p7.getPhones().addAll(Arrays.asList("34 87878-0000", "34 91101-0147"));
 		
-		u1.getPeoples().addAll(Arrays.asList(p1, p3, p4, p5, p6));
-		u2.getPeoples().addAll(Arrays.asList(p2, p5, p6, p7));
+		u1.getPeoples().addAll(Arrays.asList(p1, p3, p4, p5));
+		u2.getPeoples().addAll(Arrays.asList(p2, p6, p7));
 		
-		p1.getUsers().addAll(Arrays.asList(u1));
+		p1.getUsers().addAll(Arrays.asList(u1, u2));
 		p2.getUsers().add(u2);
 		p3.getUsers().add(u1);
 		p4.getUsers().add(u1);

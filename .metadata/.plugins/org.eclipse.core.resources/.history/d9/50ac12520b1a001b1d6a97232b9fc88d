@@ -50,7 +50,7 @@ public class UserController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<Void> tryLogin(
+	public ResponseEntity<Void> canBeLogin(
 			@RequestParam(value = "login", defaultValue = "matheus@gmail.com") String login,
 			@RequestParam(value = "password", defaultValue = "123456789") String password) {
 		userService.tryLogin(login, password);
@@ -60,7 +60,6 @@ public class UserController {
 	@GetMapping("/{idUser}")
 	public ResponseEntity<Page<PeopleDTO>> findAll(@PathVariable Long idUser) {		
 		User user = userService.findById(idUser);
-		System.out.println(user.getPeoples());
 		Page<PeopleDTO> pageDTO = filter(user.getPeoples());				
 		return ResponseEntity.ok().body(pageDTO);		
 	}	
