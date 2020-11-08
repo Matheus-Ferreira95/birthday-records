@@ -17,7 +17,7 @@ public class PeopleInsertDTO implements Serializable {
 	
 	@NotBlank
 	@Pattern(regexp = "\\d{2}/\\d{2}/\\d{4}", message = "Formato de data inválido. Tente novamente")
-	private String DataDeNascimento;
+	private String dataDeNascimento;
 	
 	@NotBlank	
 	@Pattern(regexp = "(\\d{2}) \\d{4,5}-\\d{4}", message = "Telefone inválido. Tente novamente")
@@ -42,11 +42,11 @@ public class PeopleInsertDTO implements Serializable {
 	}
 
 	public String getDataDeNascimento() {
-		return DataDeNascimento;
+		return dataDeNascimento;
 	}
 
 	public void setDataDeNascimento(String dataDeNascimento) {
-		this.DataDeNascimento = dataDeNascimento;
+		this.dataDeNascimento = dataDeNascimento;
 	}
 
 	public String getTelefone1() {

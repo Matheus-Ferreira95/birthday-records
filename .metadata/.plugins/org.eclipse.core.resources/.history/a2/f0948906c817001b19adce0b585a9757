@@ -1,5 +1,0 @@
-package com.matheusf.birthday.entities.services.exceptions;
-
-public class ResourceNotFoundException {
-
-}

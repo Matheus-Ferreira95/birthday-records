@@ -38,8 +38,8 @@ public class PeopleService {
 	public void register(People entity, User user) {			
 		entity.getUsers().add(user);
 		user.getPeoples().add(entity);
-		userRepository.save(user);
 		peopleRepository.save(entity);
+		userRepository.save(user);		
 	}
 
 	public void checkBirthday(String date) throws ParseException {
@@ -64,10 +64,10 @@ public class PeopleService {
 	}	
 	
 	public void delete(Long id) {
-		/*People entity = findById(id);
+		People entity = findById(id);
 		entity.deletar();
-		peopleRepository.save(entity);*/
-		peopleRepository.deleteById(id);
+		peopleRepository.save(entity);
+		//peopleRepository.deleteById(id);
 	}		
 	
 	public List<People> findBirthdaysOnDay(User user) {	

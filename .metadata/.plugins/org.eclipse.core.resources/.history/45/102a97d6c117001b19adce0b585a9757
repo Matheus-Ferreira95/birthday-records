@@ -1,5 +1,0 @@
-package com.matheusf.birthday.entities.resources.exceptions;
-
-public class StandardError {
-
-}

@@ -59,8 +59,7 @@ public class UserController {
 	
 	@GetMapping("/{idUser}")
 	public ResponseEntity<Page<PeopleDTO>> findAll(@PathVariable Long idUser) {		
-		User user = userService.findById(idUser);
-		System.out.println(user.getPeoples());
+		User user = userService.findById(idUser);		
 		Page<PeopleDTO> pageDTO = filter(user.getPeoples());				
 		return ResponseEntity.ok().body(pageDTO);		
 	}	

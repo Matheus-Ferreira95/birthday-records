@@ -7,7 +7,6 @@
     <fullyQualifiedTypeName name="javax.validation.constraints.Email"/>
     <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="com.matheusf.birthday.entities.resources.exceptions.FieldMessage"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.MethodArgumentNotValidException"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
     <fullyQualifiedTypeName name="com.matheusf.birthday.entities.resources.exceptions.ValidationError"/>
@@ -28,13 +27,11 @@
     <fullyQualifiedTypeName name="com.matheusf.birthday.entities.People"/>
     <fullyQualifiedTypeName name="com.matheusf.birthday.entities.User"/>
     <fullyQualifiedTypeName name="com.matheusf.birthday.domain.People"/>
-    <fullyQualifiedTypeName name="javax.validation.constraints.Past"/>
     <fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
     <fullyQualifiedTypeName name="com.matheusf.birthday.dto.PeopleUpdateDTO"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
-    <fullyQualifiedTypeName name="com.matheusf.birthday.services.exceptions.DomainException"/>
     <fullyQualifiedTypeName name="java.lang.IllegalAccessError"/>
     <fullyQualifiedTypeName name="javax.persistence.EntityNotFoundException"/>
     <fullyQualifiedTypeName name="com.matheusf.birthday.services.exceptions.ResourceNotFoundException"/>
@@ -54,4 +51,7 @@
     <fullyQualifiedTypeName name="java.util.Comparator"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.Calendar"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.Past"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.MethodArgumentNotValidException"/>
+    <fullyQualifiedTypeName name="com.matheusf.birthday.services.exceptions.DomainException"/>
 </qualifiedTypeNameHistroy>

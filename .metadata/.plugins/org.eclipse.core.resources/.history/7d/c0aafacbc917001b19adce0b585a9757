@@ -1,9 +1,0 @@
-package com.matheusf.birthday.entities.repositories;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.matheusf.birthday.entities.People;
-
-public interface PeopleRepository extends JpaRepository<People, Long> {
-
-}

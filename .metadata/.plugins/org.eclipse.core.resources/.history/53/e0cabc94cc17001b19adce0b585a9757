@@ -1,9 +1,0 @@
-package com.matheusf.birthday.entities.dto;
-
-import javax.validation.constraints.NotNull;
-
-public class UserIdDTO {
-	
-	@NotNull
-	private Long id;	
-}

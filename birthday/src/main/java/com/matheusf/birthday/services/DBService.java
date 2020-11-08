@@ -31,7 +31,7 @@ public class DBService {
 		People p1 = new People(null, "Diego", sdf.parse("10/10/1885"));
 		People p2 = new People(null, "Luana", sdf.parse("12/05/1895"));
 		People p3 = new People(null, "carmen", sdf.parse("27/10/2020"));
-		People p4 = new People(null, "jane", sdf.parse("08/03/2001"));
+		People p4 = new People(null, "jane", sdf.parse("06/11/2001"));
 		People p5 = new People(null, "maria souza carmen", sdf.parse("27/10/2010"));
 		People p6 = new People(null, "fernando", sdf.parse("15/06/2002"));
 		People p7 = new People(null, "lala", sdf.parse("03/10/2011"));
@@ -56,5 +56,6 @@ public class DBService {
 		
 		userRepository.saveAll(Arrays.asList(u1, u2));
 		peopleRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6, p7));		
+				
 	}	
 }

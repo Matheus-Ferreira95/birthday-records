@@ -1,7 +1,0 @@
-package com.matheusf.birthday.dto;
-
-public class PeopleUpdateDTO {
-	
-	
-	
-}
