@@ -50,8 +50,8 @@ public class UserController {
 		return ResponseEntity.created(uri).body(userDTO);		
 	}	
 
-	@PostMapping("/login")
-	public ResponseEntity<Void> tryLogin(@Valid @RequestBody UserInsertDTO login) {
+	@PostMapping
+	public ResponseEntity<Void> tryLogin(@RequestBody UserInsertDTO login) {
 		userService.tryLogin(login.getLogin(), login.getSenha());
 		return ResponseEntity.noContent().build();
 	}

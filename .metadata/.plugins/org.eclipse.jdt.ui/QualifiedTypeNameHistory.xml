@@ -54,4 +54,5 @@
     <fullyQualifiedTypeName name="javax.validation.constraints.Past"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.MethodArgumentNotValidException"/>
     <fullyQualifiedTypeName name="com.matheusf.birthday.services.exceptions.DomainException"/>
+    <fullyQualifiedTypeName name="com.matheusf.birthday.dto.UserInsertDTO"/>
 </qualifiedTypeNameHistroy>

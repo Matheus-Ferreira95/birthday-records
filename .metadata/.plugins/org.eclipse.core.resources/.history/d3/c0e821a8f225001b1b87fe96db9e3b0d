@@ -42,16 +42,15 @@ public class UserController {
 	private ModelMapper modelMapper;
 	
 	@PostMapping
-	public ResponseEntity<UserDTO> register(@Valid @RequestBody UserInsertDTO userInsertDTO) {		
-		User user = toEntity(userInsertDTO);
+	public ResponseEntity<UserDTO> register(@Valid @RequestBody User user) {		
 		user = userService.register(user);		
 		UserDTO userDTO = toDTO(user);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(userDTO.getId()).toUri();
 		return ResponseEntity.created(uri).body(userDTO);		
-	}	
-
-	@PostMapping("/login")
-	public ResponseEntity<Void> tryLogin(@Valid @RequestBody UserInsertDTO login) {
+	}
+	
+	@PostMapping
+	public ResponseEntity<Void> tryLogin(@RequestBody UserInsertDTO login) {
 		userService.tryLogin(login.getLogin(), login.getSenha());
 		return ResponseEntity.noContent().build();
 	}
@@ -103,8 +102,4 @@ public class UserController {
 	private UserDTO toDTO(User user) {
 		return modelMapper.map(user, UserDTO.class);
 	}	
-	
-	private User toEntity(UserInsertDTO userDTO) {
-		return new User(null, userDTO.getLogin(), userDTO.getSenha());
-	}
 }
